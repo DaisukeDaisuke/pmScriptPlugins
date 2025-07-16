@@ -6,7 +6,7 @@
 📁 PocketMine-MP/
 │
 ├── 📁 plugins/
-│   ├── 📄 CspHandler.php                ←✅ Place directly here
+│   ├── 📄 CpsHandler.php                ←✅ Place directly here
 │   ├── 📄 EnableVibrantVisualsPlugin.php←✅ Same here
 │   └── 📄 TransferDoor.php              ←✅ Same here
 │
