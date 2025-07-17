@@ -24,6 +24,8 @@ class CpsHandler_MpqCz extends PluginBase implements Listener{
 
 	/* The interval at which this plugin broadcasts messages */
 	private const SETTING_INTERVAL = 5;
+	/* Whether the anti-tapping tool is enabled */
+	private const IS_ENABLED_ANTI_TAPPING_TOOL = true;
 	/* The number of clicks per second that triggers the anti-tapping tool */
 	private const SETTING_ANTI_TAPPING_TOOL = 19;
 	/* Messages to be displayed in the jukebox popup */
@@ -78,7 +80,7 @@ class CpsHandler_MpqCz extends PluginBase implements Listener{
 		$name = $player->getName();
 
 		if($packet instanceof InventoryTransactionPacket&&$packet->trData instanceof UseItemOnEntityTransactionData&&($packet->trData->getActionType() === UseItemOnEntityTransactionData::ACTION_ATTACK)){
-			if($this->processCPS($player)){
+			if($this->processCPS($player) && self::IS_ENABLED_ANTI_TAPPING_TOOL){
 				$event->cancel();
 			}
 		}
