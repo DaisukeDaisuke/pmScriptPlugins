@@ -11,6 +11,7 @@ use pocketmine\event\EventPriority;
  * @description Let's enable Vibrant Visuals!
  * @version 1.21.92
  * @main EnableVibrantVisualsPlugin_MpqCz
+ * @author DaisukeDaisuke
  */
 class EnableVibrantVisualsPlugin_MpqCz extends PluginBase{
 	protected function onEnable() : void{

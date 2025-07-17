@@ -15,6 +15,7 @@ use pocketmine\event\player\PlayerItemUseEvent;
  * @description Transfer door plugin for PocketMine-MP
  * @version 1.0.0
  * @main TransferDoor_MpqCz
+ * @author DaisukeDaisuke
  */
 class TransferDoor_MpqCz extends PluginBase implements Listener{
 	protected function onEnable() : void{

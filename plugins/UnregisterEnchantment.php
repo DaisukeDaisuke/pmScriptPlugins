@@ -16,9 +16,10 @@ use pocketmine\item\enchantment\AvailableEnchantmentRegistry;
 /**
  * @name UnregisterEnchantmentPlugin
  * @api 5.30.0
- * @description Let's enable Vibrant Visuals!
+ * @description unregister enchantment plugin for PocketMine-MP
  * @version 1.0.0
  * @main UnregisterEnchantment_MpqCz
+ * @author DaisukeDaisuke
  */
 class UnregisterEnchantment_MpqCz extends PluginBase {
 
