@@ -87,6 +87,9 @@ class CpsHandler_MpqCz extends PluginBase implements Listener{
 
 	private function processCPS(Player $player) : bool{
 		$this->cpsData[$player->getName()][] = microtime(true);
-		return (count($this->cpsData[$player->getName()]) - 2) >= self::SETTING_ANTI_TAPPING_TOOL; //There seems to be some errors
+		if(self::SETTING_ANTI_TAPPING_TOOL <= 10){
+			return (count($this->cpsData[$player->getName()]) - 2) >= self::SETTING_ANTI_TAPPING_TOOL; //There seems to be some errors
+		}
+		return count($this->cpsData[$player->getName()]) >= self::SETTING_ANTI_TAPPING_TOOL;
 	}
 }
