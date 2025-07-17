@@ -28,7 +28,7 @@ class CpsHandler_MpqCz extends PluginBase implements Listener{
 	private const SETTING_ANTI_TAPPING_TOOL = 19;
 	/* Messages to be displayed in the jukebox popup */
 	private const SETTING_CPS_MESSAGE = TextFormat::DARK_GREEN."CPS: ";
-	/* Message when anti anti-tapping responds */
+	/* Message when anti-tapping responds */
 	private const SETTING_CPS_INVALID_MESSAGE = TextFormat::DARK_GRAY."CPS: ";
 
 	/** @var array<string, list<float>> */
