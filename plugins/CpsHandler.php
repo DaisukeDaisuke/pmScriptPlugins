@@ -52,7 +52,7 @@ class CpsHandler_MpqCz extends PluginBase implements Listener{
 				$player = Server::getInstance()->getPlayerExact($playerName);
 				if($player instanceof Player&&$player->isOnline()){
 					if(isset($this->cpsData[$playerName])){
-						if(count($this->cpsData[$playerName]) >= self::SETTING_ANTI_TAPPING_TOOL){
+						if(!self::IS_ENABLED_ANTI_TAPPING_TOOL||count($this->cpsData[$playerName]) <= self::SETTING_ANTI_TAPPING_TOOL){
 							$player->sendJukeboxPopup(self::SETTING_CPS_MESSAGE.count($this->cpsData[$playerName]));
 						}else{
 							$player->sendJukeboxPopup(self::SETTING_CPS_INVALID_MESSAGE.count($this->cpsData[$playerName]));
@@ -77,17 +77,16 @@ class CpsHandler_MpqCz extends PluginBase implements Listener{
 			return;
 		}
 		$packet = $event->getPacket();
-		$name = $player->getName();
 
 		if($packet instanceof InventoryTransactionPacket&&$packet->trData instanceof UseItemOnEntityTransactionData&&($packet->trData->getActionType() === UseItemOnEntityTransactionData::ACTION_ATTACK)){
-			if($this->processCPS($player) && self::IS_ENABLED_ANTI_TAPPING_TOOL){
+			if($this->processCPS($player)&&self::IS_ENABLED_ANTI_TAPPING_TOOL){
 				$event->cancel();
 			}
 		}
 	}
 
-	private function processCPS(Player $player): bool{
+	private function processCPS(Player $player) : bool{
 		$this->cpsData[$player->getName()][] = microtime(true);
-		return count($this->cpsData[$player->getName()]) >= self::SETTING_ANTI_TAPPING_TOOL;
+		return (count($this->cpsData[$player->getName()]) - 2) >= self::SETTING_ANTI_TAPPING_TOOL; //There seems to be some errors
 	}
 }
