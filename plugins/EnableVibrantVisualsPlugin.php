@@ -20,6 +20,10 @@ class EnableVibrantVisualsPlugin_MpqCz extends PluginBase{
 			foreach($array as $key => $packet){
 				if($packet instanceof ResourcePacksInfoPacket){
 					\Closure::bind(fn() => ($this->forceDisableVibrantVisuals = false), $packet, $packet)();
+				}else if($packet instanceof ResourcePackStackPacket){
+					$packet->experiments = new Experiments([
+						"experimental_graphics" => true,
+					], true);
 				}
 			}
 		}, EventPriority::NORMAL, $this, false);
