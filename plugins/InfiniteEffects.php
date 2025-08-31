@@ -26,7 +26,7 @@ class InfiniteEffects_MpqCz extends PluginBase implements Listener{
 		$changed = false;
 		foreach($packets as $key => $packet){
 			if($packet instanceof MobEffectPacket && $packet->duration >= 630720000){//1 year
-				$packet = MobEffectPacket::create(
+				$packets[$key] = MobEffectPacket::create(
 					actorRuntimeId: $packet->actorRuntimeId,
 					eventId: $packet->eventId,
 					effectId: $packet->effectId,
@@ -36,7 +36,6 @@ class InfiniteEffects_MpqCz extends PluginBase implements Listener{
 					tick: $packet->tick,
 				);
 				$changed = true;
-				$packets[$key] = $packet;
 			}
 		}
 		if($changed){
