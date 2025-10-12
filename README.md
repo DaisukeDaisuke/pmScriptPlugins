@@ -17,7 +17,7 @@
 
 ### 🔽 Steps
 
-1. Copy all `*.php` files directly under the `plugins/` folder.
+1. Copy `*.php` files directly under the `plugins/` folder.
 2. When you start PocketMine, they will be automatically loaded.
 
 
