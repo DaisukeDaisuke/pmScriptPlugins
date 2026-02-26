@@ -26,7 +26,6 @@ class FixInvMenu_MpqCz extends PluginBase implements Listener{
 
 	public array $list = [
 		NetworkStackLatencyPacket::NETWORK_ID => true,
-		UpdateClientOptionsPacket::NETWORK_ID => true,
 		ContainerClosePacket::NETWORK_ID => true,
 		PacketViolationWarningPacket::NETWORK_ID => true,
 	];
